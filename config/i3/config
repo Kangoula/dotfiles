@@ -200,3 +200,6 @@ bindsym XF86AudioRaiseVolume exec amixer -q set Master 5%+ && pkill -SIGRTMIN+3 
 bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- && pkill -SIGRTMIN+3 #i3blocks
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -SIGRTMIN+3 #i3blocks
 
+# Brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
