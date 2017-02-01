@@ -13,9 +13,9 @@ my i3 config files
 - FontAwesome
 - FireCode
 
-# enable brightness on asus laptop
+# Enable brightness on asus laptop
 
-## create a conf file
+## Create a conf file
 
 ```
 sudo vim /usr/share/X11/xorg.conf.d/20-intel.conf
@@ -30,7 +30,7 @@ Section "Device"
 EndSection
 ```
 
-## update grub config
+## Update grub config
 
 ```
 sudoedit /etc/default/grub
@@ -47,5 +47,6 @@ grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 
 # Credentials
 
-## lock screen
-Based on the work of Meskarune : [https://github.com/meskarune/i3lock-fancy/]
+## Fancy Lock Screen
+Based on the work of Meskarune : https://github.com/meskarune/i3lock-fancy/
+Thanks by the way, it's awesome ! :-)
