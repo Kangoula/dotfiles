@@ -44,3 +44,8 @@ update grub :
 su -
 grub2-mkconfig -o /boot/efi/EFI/fedora/grub.cfg
 ```
+
+# Credentials
+
+## lock screen
+Based on the work of Meskarune : [https://github.com/meskarune/i3lock-fancy/]
