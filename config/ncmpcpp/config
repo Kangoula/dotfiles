@@ -8,12 +8,15 @@ message_delay_time = "1"
 external_editor = "/usr/bin/vim"
 use_console_editor = "yes"
 regular_expressions = "extended"
+ignore_leading_the = "yes"
+discard_colors_if_item_is_selected = "yes"
+mouse_support = "yes"
 
 # Playlist
 playlist_disable_highlight_delay = 1
 jump_to_now_playing_song_at_start = "yes"
-song_columns_list_format = "(6f)[cyan]{l} (40)[red]{a} (25)[blue]{t|f}"
-now_playing_prefix = ">>>> "
+song_columns_list_format = "(40)[cyan]{a} (30)[yellow]{b}  (25)[white]{t|f} (6f)[white]{l} "
+now_playing_prefix = "$b"
 now_playing_suffix = "$/b"
 playlist_display_mode = "columns"
 centered_cursor = "yes"
@@ -21,7 +24,9 @@ centered_cursor = "yes"
 # Bars
 progressbar_color = "black"
 progressbar_elapsed_color = "green"
-progressbar_look = "__ "
+main_window_color = "green"
+song_status_format = "$7%a $8- %t - $4%b {(Disc %d) }(%y)"
+progressbar_look = "─╼"
 
 # UI
 header_visibility = "yes"
@@ -34,6 +39,5 @@ visualizer_output_name = "My Pulse Audio"
 visualizer_sync_interval = "30" 
 visualizer_in_stereo = "yes"
 visualizer_type = "wave_filled"
-visualizer_look = "+□"
-
+visualizer_look = "▋▋"
 
