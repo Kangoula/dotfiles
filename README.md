@@ -10,6 +10,8 @@ all my dotfiles and i3 config
 - i3status
 - feh
 - dunst
+- mpd
+- ncmpcpp
 - FontAwesome
 - FireCode
 
