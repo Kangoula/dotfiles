@@ -1,6 +1,6 @@
-mpd_host=localhost
-mpd_port=6600
-mpd_music_dir="/home/kangoula/Musique/DDE"
+mpd_host=/home/kangoula/.config/mpd/socket
+#mpd_port=6600
+mpd_music_dir="/run/media/kangoula/DDE/Musique"
 
 # General
 autocenter_mode = "yes"
@@ -20,11 +20,20 @@ centered_cursor = "yes"
 
 # Bars
 progressbar_color = "black"
-progressbar_elapsed_color = "black"
+progressbar_elapsed_color = "green"
 progressbar_look = "__ "
 
 # UI
 header_visibility = "yes"
 titles_visibility = "yes"
 statusbar_visibility = "yes"
+
+# visualizer
+visualizer_fifo_path = "/tmp/mpd.fifo"
+visualizer_output_name = "my_fifo"
+visualizer_sync_interval = "30" 
+visualizer_in_stereo = "yes"
+visualizer_type = "ellipse"
+visualizer_look = "+|"
+
 
