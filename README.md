@@ -1,5 +1,5 @@
-# i3dot
-my i3 config files
+# dotfiles
+all my dotfiles and i3 config
 
 # Dependencies
 
