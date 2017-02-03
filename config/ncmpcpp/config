@@ -30,10 +30,10 @@ statusbar_visibility = "yes"
 
 # visualizer
 visualizer_fifo_path = "/tmp/mpd.fifo"
-visualizer_output_name = "my_fifo"
+visualizer_output_name = "My Pulse Audio"
 visualizer_sync_interval = "30" 
 visualizer_in_stereo = "yes"
-visualizer_type = "ellipse"
-visualizer_look = "+|"
+visualizer_type = "wave_filled"
+visualizer_look = "+□"
 
 
