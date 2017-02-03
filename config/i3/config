@@ -175,7 +175,7 @@ smart_borders no_gaps
 
 # start applications
 exec /usr/bin/compton --config /home/kangoula/.config/i3/compton.conf
-exec feh --bg-fill /home/kangoula/Images/14.png
+exec feh --bg-fill /home/kangoula/Images/rick_morty.jpg
 exec --no-startup-id owncloud
 exec --no-startup-id redshift
 exec --no-startup-id dunst
