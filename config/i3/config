@@ -162,6 +162,7 @@ client.placeholder $bg $bg $fg $bg $bg
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
+	position top
     status_command i3status -c ~/.config/i3/i3status.conf
 	font pango: Fira Code, FontAwesome 11 
 	colors {
@@ -175,14 +176,14 @@ smart_borders no_gaps
 
 # start applications
 exec /usr/bin/compton --config /home/kangoula/.config/i3/compton.conf
-exec feh --bg-fill /home/kangoula/Images/rick_morty.jpg
+exec feh --bg-fill /home/kangoula/Image/77.png
 exec --no-startup-id owncloud
 exec [ ! -s ~/.config/mpd/pid ] && mpd
 exec --no-startup-id redshift
 exec --no-startup-id dunst
 
 # Specific settings for windows
-for_window [class="^.*"] border pixel 2  
+for_window [class="^.*"] border pixel 1
 for_window [class="^.*"] floating disable 
 for_window [class=".*"] title_format "<span font='Fira Code 9'> > %title</span>"
 for_window [window_role="GtkFileChooserDialog"] floating enable

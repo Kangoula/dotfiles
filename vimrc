@@ -70,7 +70,7 @@ colorscheme eva01
 " => Autocommands
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 :autocmd BufWritePost *.tex :CompileLatex
-:autocmd vimenter * NERDTree
+":autocmd vimenter * NERDTree
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Ctrl P
