@@ -6,6 +6,11 @@ Xft.hintstyle: hintslight
 Xft.rgba: rgb
 Xft.lcdfilter: lcddefault
 
+URxvt.font: xft:Fira\ Code:size=12
+URxvt*saveLines: 10000
+URxvt*scrollBar: false
+URxvt.depth: 32
+URxvt.background: [80]#1F2D3A
 ! Colors {{{
 rofi.color-enabled: true
 rofi.color-window: #273238, #273238, #1e2529
@@ -15,40 +20,40 @@ rofi.color-urgent: #273238, #ff1844, #273238, #394249, #ff1844
 
 ! special
 *foreground:   #f0f0f0
-*background:   #232c33
+*background:   #1F2D3A 
 *cursorColor:  #f0f0f0
 
 ! black
 ! Second black is grey
-*color0:       #232c33
-*color8:       #70838c
+*color0:       #2C3E50 
+*color8:       #34495E 
 
 ! red
-*color1:       #99736e
-*color9:       #99736e
+*color1:       #C0392B 
+*color9:       #E74C3C 
 
 ! green
-*color2:       #78a090
-*color10:      #78a090
+*color2:       #27AE60 
+*color10:      #2ECC71 
 
 ! yellow
-*color3:       #bfb7a1
-*color11:      #bfb7a1
+*color3:       #F39C12 
+*color11:      #F39C12 
 
 ! blue
-*color4:       #7c9fa6
-*color12:      #7c9fa6
+*color4:       #2980B9 
+*color12:      #3498DB 
 
 ! magenta
-*color5:       #BF9C86
-*color13:      #BF9C86
+*color5:       #8E44AD 
+*color13:      #9B59B6 
 
 ! cyan
-*color6:       #99BFBA
-*color14:      #99BFBA
+*color6:       #16A085 
+*color14:      #2AA198 
 
 ! white
-*color7:       #f0f0f0
-*color15:      #f0f0f0
+*color7:       #BDC3C7 
+*color15:      #ECF0F1 
 
 ! }}}
