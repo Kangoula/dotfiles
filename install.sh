@@ -8,7 +8,7 @@ rm -rf $PREFIX/i3 $PREFIX/gtk-3.0 $PREFIX/mpv $PREFIX/dunstrc ~/.gtkrc-2.0 ~/.Xr
 
 echo "creating directories"
 echo ""
-mkdir $PREFIX/i3 $PREFIX/i3/lock $PREFIX/i3/lock/icons $PREFIX/gtk-3.0 $PREFIX/mpv $PREFIX/mpd $PREFIX/ncmpcpp $PREFIX/ncmpcpp/playlists
+mkdir -p $PREFIX/i3 $PREFIX/i3/lock $PREFIX/i3/lock/icons $PREFIX/gtk-3.0 $PREFIX/mpv $PREFIX/mpd $PREFIX/ncmpcpp $PREFIX/ncmpcpp/playlists $PREFIX/cava
 
 
 echo "creating links"
@@ -27,7 +27,8 @@ echo "other files"
 ln config/dunstrc $PREFIX/dunstrc
 ln config/mpv/mpv.conf $PREFIX/mpv/mpv.conf
 ln config/mpd/mpd.conf $PREFIX/mpd/mpd.conf
-ln config/ncmpcpp/config ~/$PREFIX/ncmpcpp/config
+ln config/ncmpcpp/config $PREFIX/ncmpcpp/config
+ln config/cava/config $PREFIX/cava/config
 
 echo "done"
 echo "env files"
