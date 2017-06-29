@@ -1,10 +1,11 @@
 set $mod Mod4
 
-font pango:Inconsolata 11
+font pango:Monospace 11
 
 floating_modifier $mod
 
-gaps inner 15
+gaps outer 0
+gaps inner 7
 smart_borders on
 
 # Set colors from Xresources
@@ -111,36 +112,38 @@ mode $power_control {
 	bindsym Escape mode "default"
 }
 
+
+bindsym $mod+l exec ~/.config/i3/lock/lock -- scrot; mode "default"
 bindsym $mod+n mode $power_control
 
-client.focused          $bg     			$bg     			$fg  	$bg 						$bg
+client.focused          $bg     			$bg     			$fg  	$bg 			    $bg
 client.focused_inactive $bg     			$bg     			$fg  	$bg       			$bg
-client.unfocused        $bg_unfoc     $bg_unfoc     $fg  	$bg_unfoc      	$bg_unfoc
+client.unfocused        $bg_unfoc           $bg_unfoc           $fg  	$bg_unfoc      	    $bg_unfoc
 client.urgent           $bg     			$bg     			$fg  	$bg       			$bg
-client.placeholder 			$bg 					$bg 					$fg 	$bg 						$bg
+client.placeholder 		$bg 				$bg 				$fg 	$bg 				$bg
 
 
-bar {
-	i3bar_command i3bar -t
-	position top
-    status_command i3status -c ~/.config/i3/i3status.conf
-	strip_workspace_numbers yes
-	font pango: Inconsolata, FontAwesome 10.5
-	colors {
-		background #302e3850
-		separator #666666
-		focused_workspace #0088CC #0088CC #ffffff
-		active_workspace #333333 #333333 #888888
-		inactive_workspace #333333 #333333 #888888
-		urgent_workspace #2f343a #900000 #ffffff
-	}
-}
+# bar {
+# 	i3bar_command i3bar -t
+# 	position top
+#     status_command i3status -c ~/.config/i3/i3status.conf
+# 	strip_workspace_numbers yes
+# 	font pango: Inconsolata, FontAwesome 10.5
+# 	colors {
+# 		background #302e3850
+# 		separator #666666
+# 		focused_workspace #0088CC #0088CC #ffffff
+# 		active_workspace #333333 #333333 #888888
+# 		inactive_workspace #333333 #333333 #888888
+# 		urgent_workspace #2f343a #900000 #ffffff
+# 	}
+# }
 
 # center window
 bindsym $mod+c move position center
 
 # specific app shortcuts
-bindsym $mod+Return exec urxvt256c
+bindsym $mod+Return exec terminator
 bindsym $mod+d exec rofi -show drun
 bindsym $mod+e exec nautilus
 
@@ -154,15 +157,14 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # start applications
-exec feh --bg-fill /home/kangoula/Images/77.png &
-exec /usr/bin/compton --config /home/kangoula/.config/i3/compton.conf &
-exec --no-startup-id owncloud &
-exec [ ! -s ~/.config/mpd/pid ] && mpd &
-exec --no-startup-id redshift &
-exec --no-startup-id dunst &
+exec --no-startup-id xrandr --output VGA-2 --left-of VGA-1
+exec --no-startup-id feh --bg-fill /home/gdenis/Images/wallhaven-497846.jpg &
+exec --no-startup-id /usr/bin/compton --config /home/gdenis/.config/i3/compton.conf &
+exec --no-startup-id nm-applet &
+exec_always --no-startup-id /home/gdenis/.config/polybar/launch.sh
 
 # Specific settings for windows
-for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] border pixel 1.5
 for_window [class="^.*"] floating disable
 for_window [class=".*"] title_format "<span font='Inconsolata 9'> > %title</span>"
 for_window [window_role="GtkFileChooserDialog"] floating enable
@@ -171,3 +173,4 @@ for_window [instance="spotify"] move container to workspace 7:_Musique
 for_window [instance="Dialog"] floating enable
 for_window [instance="owncloud"] floating enable
 for_window [instance="Places"] floating enable
+for_window [instance="gimp-2.8*"] floating disable
