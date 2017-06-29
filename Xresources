@@ -13,25 +13,20 @@ URxvt.depth: 32
 URxvt.background: [80]#1F2D3A
 ! Colors {{{
 rofi.color-enabled: true
-rofi.color-window: argb:e41f2d3a, argb:0002b36, argb:01f2d3a
-rofi.color-normal: argb:01f2d3a, #f0f0f0, argb:01f2d3a, argb:26268bd2, #f0f0f0
-rofi.color-active: argb:01f2d3a, #268bd2, argb:01f2d3a, argb:24268bd2, #268bd2
-rofi.color-urgent: argb:01f2d3a, #c0392b, argb:01f2d3a, argb:2ec0392b, #e74c3c
-!rofi.color-enabled: true
-!rofi.color-window: #002b37, #002b37, #003642
-!rofi.color-normal: #002b37, #819396, #002b37, #003642, #819396
-!rofi.color-active: #002b37, #008ed4, #002b37, #003642, #008ed4
-!rofi.color-urgent: #002b37, #da4281, #002b37, #003642, #da4281
+rofi.color-window: argb:d8282a36, argb:0282a36, argb:0282a36
+rofi.color-normal: argb:044475a, #f8f8f2, argb:044475a, #44475a, #ff79c6
+rofi.color-active: argb:06272a4, #66d9ef, argb:044475a, #44475a, #66d9ef
+rofi.color-urgent: argb:044475a, #ff5555, argb:044475a, #44475a, #ff5555
 
 ! special
-*foreground:   #f0f0f0
-*background:   #1F2D3A 
+*foreground:   #f8f8f2
+*background:   #282a36 
 *cursorColor:  #f0f0f0
 
 ! black
 ! Second black is grey
-*color0:       #2C3E50 
-*color8:       #34495E 
+*color0:       #282a36 
+*color8:       #44475a 
 
 ! red
 *color1:       #C0392B 
