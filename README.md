@@ -12,6 +12,7 @@ all my dotfiles and i3 config
 - dunst
 - mpd
 - ncmpcpp
+- polybar
 - FontAwesome
 - FireCode
 
