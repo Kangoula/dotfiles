@@ -8,7 +8,7 @@ rm -rf $PREFIX/i3 $PREFIX/gtk-3.0 $PREFIX/mpv $PREFIX/dunstrc ~/.gtkrc-2.0 ~/.Xr
 
 echo "creating directories"
 echo ""
-mkdir -p $PREFIX/i3 $PREFIX/i3/lock $PREFIX/i3/lock/icons $PREFIX/gtk-3.0 $PREFIX/mpv $PREFIX/mpd $PREFIX/ncmpcpp $PREFIX/ncmpcpp/playlists $PREFIX/cava
+mkdir -p $PREFIX/i3 $PREFIX/i3/lock $PREFIX/i3/lock/icons $PREFIX/gtk-3.0 $PREFIX/mpv $PREFIX/mpd $PREFIX/ncmpcpp $PREFIX/ncmpcpp/playlists $PREFIX/cava $PREFIX/polybar
 
 
 echo "creating links"
@@ -29,6 +29,10 @@ ln config/mpv/mpv.conf $PREFIX/mpv/mpv.conf
 ln config/mpd/mpd.conf $PREFIX/mpd/mpd.conf
 ln config/ncmpcpp/config $PREFIX/ncmpcpp/config
 ln config/cava/config $PREFIX/cava/config
+ln config/polybar/config $PREFIX/polybar/config
+ln config/polybar/bar1.config $PREFIX/polybar/bar1.config
+ln config/polybar/bar2.config $PREFIX/polybar/bar2.config
+ln config/polybar/launch.sh $PREFIX/polybar/launch.sh
 
 echo "done"
 echo "env files"
