@@ -46,10 +46,10 @@ foreground-alt = ${self.light-gray}
 alert = ${self.orange}
 
 [bar/bar1]
-include-file = /home/gdenis/.config/polybar/bar1.config
+include-file = /home/kangoula/.config/polybar/bar1.config
 
-[bar/bar2]
-include-file = /home/gdenis/.config/polybar/bar2.config
+;[bar/bar2]
+;include-file = $HOME/.config/polybar/bar2.config
 
 [bar/base]
 ;monitor =
