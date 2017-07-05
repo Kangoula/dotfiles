@@ -13,7 +13,7 @@ URxvt.depth: 32
 URxvt.background: [80]#1F2D3A
 ! Colors {{{
 rofi.color-enabled: true
-rofi.color-window: argb:d8282a36, argb:0282a36, argb:0282a36
+rofi.color-window: argb:e0282a36, #44475a, argb:0282a36
 rofi.color-normal: argb:044475a, #f8f8f2, argb:044475a, #44475a, #ff79c6
 rofi.color-active: argb:06272a4, #66d9ef, argb:044475a, #44475a, #66d9ef
 rofi.color-urgent: argb:044475a, #ff5555, argb:044475a, #44475a, #ff5555
