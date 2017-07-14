@@ -33,14 +33,14 @@ transparent = #00000000
 background = ${self.very-dark-gray}
 background-alt = ${self.dark-gray}
 workspace-focused-underline = ${self.pink}
-date-underline = ${self.sandstone}
-fs-underline = ${self.cyan}
-cpu-underline = ${self.purple}
+date-underline = ${self.transparent}
+fs-underline = ${self.purple}
+cpu-underline = ${self.green}
 memory-underline = ${self.green}
-volume-underline = ${self.dark-yellow}
-charging-underline = ${self.cyan}
+volume-underline = ${self.purple}
+charging-underline = ${self.green}
 discharging-underline = ${self.orange}
-eth-underline = ${self.lace}
+eth-underline = ${self.transparent}
 foreground = ${self.very-light-gray}
 foreground-alt = ${self.light-gray}
 alert = ${self.orange}
@@ -60,10 +60,10 @@ fixed-center = true
 background = ${colors.background}
 foreground = ${colors.foreground}
 
-line-size = 4
+line-size = 3 
 line-color = #f00
 
-border-size = 2
+border-size = 5
 border-color = ${colors.transparent}
 
 padding-left = 0
@@ -75,9 +75,9 @@ module-margin-right = 5
 font-0 = Monospace\ Regular\ Font:pixelsize=9;1
 font-1 = fontawesome:pixelsize=9;0
 
-modules-left = i3
+modules-left = i3 xwindow
 modules-center = date
-modules-right = filesystem volume memory cpu eth battery powermenu
+modules-right = filesystem memory cpu volume battery eth powermenu
 
 tray-position = right
 tray-padding = 2
@@ -86,6 +86,8 @@ tray-background = ${colors.background}
 
 scroll-up = i3wm-wsnext
 scroll-down = i3wm-wsprev
+
+locale = fr_FR.UTF-8
 
 [module/xwindow]
 type = internal/xwindow
@@ -113,7 +115,7 @@ interval = 25
 
 mount-0 = /home
 
-label-mounted = %mountpoint%: %used%%
+label-mounted = %mountpoint%: %percentage_used%%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 format-mounted-underline = ${colors.fs-underline}
@@ -161,7 +163,7 @@ type = internal/cpu
 interval = 2
 format = <label> <ramp-coreload>
 format-underline = ${colors.cpu-underline}
-label = CPU %percentage%%
+label = %{F#f8f8f2}CPU %percentage%%%{F-}
 
 ramp-coreload-0 = %{F#dfdfdf}▁%{F-}
 ramp-coreload-3 = %{F#dfdfdf}▄%{F-}
@@ -191,28 +193,44 @@ format-prefix-foreground = ${colors.foreground-alt}
 
 [module/eth]
 type = internal/network
-interface = enp0s8
-interval = 3.0
+interface = wlp2s0
+interval = 5.0
 
+format-connected = <ramp-signal> <label-connected>
 format-connected-underline = ${colors.eth-underline}
 format-connected-prefix = " "
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+label-connected = %{F#f8f8f2}%local_ip%%{F-}
 
 format-disconnected = "x"
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 label-disconnected-foreground = ${colors.alert}
 
+format-packetloss = <animation-packetloss> <label-connected>
+
+ramp-signal-foreground = ${colors.foreground}
+ramp-signal-0 = 😱
+ramp-signal-1 = 😠
+ramp-signal-2 = 😒
+ramp-signal-3 = 😊
+ramp-signal-4 = 😃
+ramp-signal-5 = 😈
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = ${colors.foreground}
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
 [module/date]
 type = internal/date
 interval = 5
 
 date = " %a %_d %b %Y - "
-date-alt = " %Y-%m-%d"
 
 time = %H:%M
-time-alt = %H:%M:%S
 
 format-underline = ${colors.date-underline}
 
@@ -238,16 +256,19 @@ format-volume-underline = ${colors.volume-underline}
 [module/battery]
 type = internal/battery
 battery = BAT0
-adapter = AC
+adapter = AC0
 full-at = 98
 
 format-charging = <animation-charging> <label-charging>
 format-charging-underline = ${colors.charging-underline}
+label-charging=%{F#f8f8f2}%percentage%%%{F-}
 
 format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.discharging-underline}
+label-discharging=%{F#f8f8f2}%percentage%%%{F-}
 
 format-full-underline = ${colors.green}
+label-full=%{F#f8f8f2}%percentage%%%{F-}
 
 ramp-capacity-0 =  
 ramp-capacity-1 =  
@@ -269,7 +290,7 @@ type = custom/menu
 
 format-spacing = 1
 
-label-open = gdenis
+label-open = kangoula
 label-open-foreground = ${colors.foreground}
 label-close =  x
 label-close-foreground = ${colors.red}
