@@ -13,8 +13,14 @@ export ALTERNATE_EDITOR=""
 export EDITOR="vim"
 export VISUAL="vim"
 
-PATH=$PATH:$HOME/.local/bin:$M2_HOME/bin:$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools
+PATH=$PATH:$HOME/.local/bin:$M2_HOME/bin:$HOME/bin:$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$HOME/.yarn/bin:$HOME/softwares/lein
 
 export PATH
 
-# xinput disable 'Atmel'
+xinput disable 'Atmel'
+xrandr --auto
+
+if xrandr --listactivemonitors | grep -q 'HDMI1' ; then
+	xrandr --output HDMI1 --left-of eDP1
+	fi
+

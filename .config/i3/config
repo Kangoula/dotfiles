@@ -1,17 +1,17 @@
 set $mod Mod4
 
-font pango:Monospace 11
+font pango:Inconsolata 13
 
 floating_modifier $mod
 
-gaps outer 0
+gaps outer 10 
 gaps inner 7
 smart_borders on
 
 # Set colors from Xresources
-set_from_resource $fg i3wm.color7 #f0f0f0
-set_from_resource $bg i3wm.color8 #f0f0f0
-set_from_resource $bg_unfoc i3wm.color0 #f0f0f0
+set_from_resource $fg i3wm.color7 #f8f8f2
+set_from_resource $bg i3wm.color8 #999999
+set_from_resource $bg_unfoc i3wm.color0 #4D4D4D
 
 # kill focused window
 bindsym $mod+Shift+A kill
@@ -34,7 +34,7 @@ bindsym $mod+v split v
 bindsym $mod+f fullscreen toggle
 
 # change container layout (stacked, tabbed, toggle split)
-# bindsym $mod+s layout stacking
+#bindsym $mod+s layout stacking
 # bindsym $mod+z layout tabbed
 bindsym $mod+s layout toggle split
 
@@ -54,28 +54,28 @@ bindsym $mod+q focus parent
 bindsym $mod+ctrl+Left workspace prev_on_output
 bindsym $mod+ctrl+Right workspace next_on_output
 
-bindsym $mod+ampersand workspace 1:
-bindsym $mod+eacute workspace 2:II
-bindsym $mod+quotedbl workspace 3:III
-bindsym $mod+apostrophe workspace 4:IV
-bindsym $mod+parenleft workspace 5:V
-bindsym $mod+minus workspace 6:VI
-bindsym $mod+egrave workspace 7:_Musique
-bindsym $mod+underscore workspace 8:VIII
-bindsym $mod+ccedilla workspace 9:IX
-bindsym $mod+agrave workspace 10:X
+bindsym $mod+ampersand workspace 1
+bindsym $mod+eacute workspace 2
+bindsym $mod+quotedbl workspace 3
+bindsym $mod+apostrophe workspace 4
+bindsym $mod+parenleft workspace 5
+bindsym $mod+minus workspace 6
+bindsym $mod+egrave workspace 7
+bindsym $mod+underscore workspace 8
+bindsym $mod+ccedilla workspace 9
+bindsym $mod+agrave workspace 10
 
 # move focused container to workspace
-bindsym $mod+Shift+1 move container to workspace 1:
-bindsym $mod+Shift+eacute move container to workspace 2:II
-bindsym $mod+Shift+3 move container to workspace 3:III
-bindsym $mod+Shift+4 move container to workspace 4:IV
-bindsym $mod+Shift+5 move container to workspace 5:V
-bindsym $mod+Shift+6 move container to workspace 6:VI
-bindsym $mod+Shift+egrave move container to workspace 7:_Musique
-bindsym $mod+Shift+8 move container to workspace 8:VIII
-bindsym $mod+Shift+ccedilla move container to workspace 9:IX
-bindsym $mod+Shift+agrave move container to workspace 10:X
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+eacute move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10
 
 bindsym $mod+ctrl+Shift+Right move window to workspace next_on_output
 bindsym $mod+ctrl+Shift+Left move window to workspace prev_on_output
@@ -140,10 +140,9 @@ bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
 
 # start applications
-#exec --no-startup-id xrandr --output VGA-2 --left-of VGA-1
-exec --no-startup-id feh --bg-fill ~/Images/current.png &
+exec --no-startup-id feh --bg-fill ~/Images/current &
 exec --no-startup-id /usr/bin/compton --config ~/.config/i3/compton.conf &
-#exec --no-startup-id nm-applet &
+exec --no-startup-id redshift &
 exec_always ~/.config/polybar/launch.sh
 
 # Specific settings for windows
@@ -151,9 +150,9 @@ for_window [class="^.*"] border pixel 1.5
 for_window [class="^.*"] floating disable
 for_window [class=".*"] title_format "<span font='Inconsolata 9'> > %title</span>"
 for_window [window_role="GtkFileChooserDialog"] floating enable
-for_window [instance="slack"] move container to workspace 4:IV
-for_window [instance="spotify"] move container to workspace 7:_Musique
+for_window [instance="slack"] move container to workspace 8
 for_window [instance="Dialog"] floating enable
-for_window [instance="owncloud"] floating enable
 for_window [instance="Places"] floating enable
-for_window [instance="gimp-2.8*"] floating disable
+for_window [instance="gimp-2.8*"] floating enable
+for_window [class="zoom"] move container to workspace 7
+for_window [class="Atom"] move container to workspace 2

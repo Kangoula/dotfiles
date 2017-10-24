@@ -35,12 +35,10 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'raimondi/delimitmate' "auto-colsing brackets...
-"Plugin 'LaTeX-Box-Team/LaTeX-Box' 
+"Plugin 'LaTeX-Box-Team/LaTeX-Box'
+Plugin 'dracula/vim'
 Plugin 'scrooloose/syntastic'
 Plugin 'itchyny/lightline.vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'jbgutierrez/vim-babel'
 Plugin 'mattn/webapi-vim'
 Plugin 'scrooloose/nerdtree'
 Plugin 'kien/ctrlp.vim'
@@ -64,7 +62,8 @@ map <silent> <A-Right> :wincmd l<CR>
 " => Colors
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 let t_Co=256
-colorscheme eva01 
+"colorscheme eva01 
+color dracula
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => Autocommands

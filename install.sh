@@ -2,7 +2,7 @@
 
 echo "copy config files"
 echo ""
-cp -r config/* $HOME/config/
+cp -r config/* $HOME/.config/
 cp gtkrc-2.0 $HOME/.gtkrc-2.0
 echo "done"
 echo ""
