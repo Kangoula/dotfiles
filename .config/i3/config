@@ -144,6 +144,8 @@ exec --no-startup-id feh --bg-fill ~/Images/current &
 exec --no-startup-id /usr/bin/compton --config ~/.config/i3/compton.conf &
 exec --no-startup-id redshift &
 exec_always ~/.config/polybar/launch.sh
+exec xinput set-prop 17 300 1
+exec xinput set-prop 17 292 1
 
 # Specific settings for windows
 for_window [class="^.*"] border pixel 1.5
