@@ -1,33 +1,24 @@
 #!/bin/bash
+C=~/.config
+mkdir -p $C/polybar $C/gtk-3.0 $C/i3/lock $C/gtk-2.0 $C/nvim $C/mpd $C/mpv $C/cava $C/ncmpcpp
 
-echo "copy config files"
-echo ""
-cp -r config/* $HOME/.config/
-cp gtkrc-2.0 $HOME/.gtkrc-2.0
-echo "done"
-echo ""
+cp -sf ./polybar/* $C/polybar/
+cp -sf ./cava/* $C/cava
+cp -sf ./dunstrc $C/
+cp -sf ./gtk-3.0/* $C/gtk-3.0/
+cp -rsf ./i3/** $C/i3/
+cp -sf ./mpd/* $C/mpd/
+cp -sf ./mpv/* $C/mpv/
+cp -sf ./ncmpcpp/* $C/ncmpcpp
+cp -sf ./nvim/* $C/nvim
 
-echo "env files"
-echo ""
-cp Xresources ~/.Xresources
-cp bash_profile ~/.bash_profile
-cp bashrc ~/.bashrc
-cp zshrc ~/.zshrc
-cp zprofile ~/.zprofile
-echo "done"
-echo ""
+cp -sf .bash_profile ~/
+cp -sf .bashrc ~/
+cp -sf .gtkrc-2.0 ~/
+cp -sf .Xresources ~/.Xresources
+cp -sf .zprofile ~/.zprofile
+cp -sf .zshrc ~/.zshrc
 
-echo "copying icons and themes"
-echo ""
-if [ ! -d ~/.themes ]; then
-	mkdir ~/.themes
-fi
-if [ ! -d ~/.icons ]; then
-	mkdir ~/.icons
-fi
+cp -rf .icons/* ~/.icons/
+cp -rf .themes/* ~/.themes/
 
-cp -r icons/* ~/.icons/
-cp -r themes/* ~/.themes/
-
-echo "done"
-echo ""
