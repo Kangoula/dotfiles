@@ -66,7 +66,7 @@ SPACESHIP_PROMPT_ORDER=(
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git fedora zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(aws lein git fedora zsh-syntax-highlighting zsh-autosuggestions)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -75,19 +75,7 @@ source $ZSH/oh-my-zsh.sh
 # export MANPATH="/usr/local/man:$MANPATH"
 
 # You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/dsa_id"
+export LANG=fr_FR.UTF-8
 
 # Set personal aliases, overriding those provided by oh-my-zsh libs,
 # plugins, and themes. Aliases can be placed here, though oh-my-zsh
@@ -99,11 +87,14 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 alias rsync="rsync -Paz"
 
-alias bff="cd $HOME/code/bf.front"
-alias bfc="cd $HOME/code/bf.client.web"
+alias bifrost=echo 'insert bifrost cmd here'
+
+alias bff="cd $HOME/code/bf/bf.front"
+alias bfc="cd $HOME/code/bf/bf.client.web"
 alias bfd="cd $HOME/code/bf.data"
 alias bf="cd $HOME/code/bf"
 alias vim="nvim"
 alias vi="nvim"
 alias oldvim="/usr/bin/vim"
 
+alias zshrc="nvim $HOME/.zshrc"

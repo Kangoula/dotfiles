@@ -1,3 +1,4 @@
+
 set $mod Mod4
 
 font pango:Inconsolata 13
@@ -146,6 +147,7 @@ exec --no-startup-id feh --bg-fill ~/Images/current &
 exec --no-startup-id /usr/bin/compton --config ~/.config/i3/compton.conf &
 exec --no-startup-id redshift &
 exec_always ~/.config/polybar/launch.sh
+exec xinput disable 'Atmel'
 exec xinput set-prop 'ETPS/2 Elantech Touchpad' 292 1
 exec xinput set-prop 'ETPS/2 Elantech Touchpad' 300 1
 
