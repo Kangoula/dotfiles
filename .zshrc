@@ -66,7 +66,7 @@ SPACESHIP_PROMPT_ORDER=(
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aws lein git fedora zsh-syntax-highlighting zsh-autosuggestions)
+plugins=(aws lein git fedora zsh-syntax-highlighting zsh-autosuggestions docker)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -85,9 +85,8 @@ export LANG=fr_FR.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-alias rsync="rsync -Paz"
 
-alias bifrost=echo 'insert bifrost cmd here'
+alias rsync="rsync -Paz"
 
 alias bff="cd $HOME/code/bf/bf.front"
 alias bfc="cd $HOME/code/bf/bf.client.web"
@@ -98,3 +97,9 @@ alias vi="nvim"
 alias oldvim="/usr/bin/vim"
 
 alias zshrc="nvim $HOME/.zshrc"
+alias DDE-mount="$HOME/code/utils/mountDDE"
+alias DDE-eject="$HOME/code/utils/ejectDDE"
+
+alias dotfiles="cd $HOME/code/dotfiles"
+
+alias bifrost=''

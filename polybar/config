@@ -49,18 +49,18 @@ white = #ffffff
 black = #000000
 transparent = #00000000
 
-background = ${self.very-dark-gray}
+background = ${self.my_background}
 background-alt = ${self.dark-gray}
-workspace-focused-underline = ${self.cyan}
+workspace-focused-underline = ${self.my_color6}
 date-underline = ${self.transparent}
-fs-underline = ${self.cyan}
-cpu-underline = ${self.cyan}
-memory-underline = ${self.cyan}
-volume-underline = ${self.cyan}
-charging-underline = ${self.green}
-discharging-underline = ${self.orange}
+fs-underline = ${self.my_color6}
+cpu-underline = ${self.my_color6}
+memory-underline = ${self.my_color6}
+volume-underline = ${self.my_color6}
+charging-underline = ${self.my_color10}
+discharging-underline = ${self.my_color9}
 eth-underline = ${self.transparent}
-foreground = ${self.very-light-gray}
+foreground = ${self.my_foreground}
 foreground-alt = ${self.light-gray}
 alert = ${self.orange}
 
@@ -78,7 +78,7 @@ height = 25
 fixed-center = true
 
 background = ${colors.background}
-foreground = ${colors.my_foreground}
+foreground = ${colors.foreground}
 
 line-size = 2 
 line-color = ${colors.my_color4}
@@ -92,12 +92,12 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = Inconsolata:pixelsize=11;1
-font-1 = fontawesome:pixelsize=11;0
+font-0 = Inconsolata:pixelsize=10;1
+font-1 = fontawesome:pixelsize=9;1
 
 modules-left = i3 xwindow
 modules-center = date
-modules-right = filesystem memory cpu volume battery eth powermenu
+modules-right = memory cpu volume battery 
 
 tray-position = right
 tray-padding = 2
@@ -288,7 +288,7 @@ format-discharging = <ramp-capacity> <label-discharging>
 format-discharging-underline = ${colors.discharging-underline}
 label-discharging=%{F#f8f8f2}%percentage%%%{F-}
 
-format-full-underline = ${colors.green}
+format-full-underline = ${colors.charging-underline}
 label-full=%{F#f8f8f2}%percentage%%%{F-}
 
 ramp-capacity-0 =  

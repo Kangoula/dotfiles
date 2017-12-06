@@ -10,8 +10,8 @@ gaps inner 7
 smart_borders on
 
 # Set colors from Xresources
-set_from_resource $fg i3wm.color7 #f8f8f2
-set_from_resource $bg i3wm.color8 #999999
+set_from_resource $fg i3wm.foreground #f8f8f2
+set_from_resource $bg i3wm.background #999999
 set_from_resource $bg_unfoc i3wm.color0 #4D4D4D
 
 bindsym Ctrl+Q exec /bin/false 
@@ -119,11 +119,11 @@ mode $power_control {
 bindsym $mod+l exec ~/.config/i3/lock/lock -- scrot; mode "default"
 bindsym $mod+n mode $power_control
 
-client.focused          $bg     			$bg     			$fg  	$bg 			    $bg
+client.focused          $bg $bg $fg $bg $bg
 client.focused_inactive $bg     			$bg     			$fg  	$bg       			$bg
-client.unfocused        $bg_unfoc           $bg_unfoc           $fg  	$bg_unfoc      	    $bg_unfoc
-client.urgent           $bg     			$bg     			$fg  	$bg       			$bg
-client.placeholder 		$bg 				$bg 				$fg 	$bg 				$bg
+client.unfocused        $bg_unfoc     $bg_unfoc     $fg  	$bg_unfoc      	$bg_unfoc
+client.urgent           $bg     			$bg     			$fg  	$bg             $bg
+client.placeholder 		  $bg 				  $bg 				  $fg 	$bg		          $bg
 
 # center window
 bindsym $mod+c move position center
@@ -139,20 +139,20 @@ bindsym XF86AudioLowerVolume exec amixer -q set Master 5%- && pkill -SIGRTMIN+3
 bindsym XF86AudioMute exec pactl set-sink-mute 0 toggle && pkill -SIGRTMIN+3
 
 # Brightness
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec xbacklight -dec 5 # decrease screen brightness
 
 # start applications
 exec --no-startup-id feh --bg-fill ~/Images/current &
 exec --no-startup-id /usr/bin/compton --config ~/.config/i3/compton.conf &
-exec --no-startup-id redshift &
+exec --no-startup-id redshift -t 6500K:3000K &
 exec_always ~/.config/polybar/launch.sh
 exec xinput disable 'Atmel'
 exec xinput set-prop 'ETPS/2 Elantech Touchpad' 292 1
 exec xinput set-prop 'ETPS/2 Elantech Touchpad' 300 1
 
 # Specific settings for windows
-for_window [class="^.*"] border pixel 1.5
+for_window [class="^.*"] border pixel 1
 for_window [class="^.*"] floating disable
 for_window [class=".*"] title_format "<span font='Inconsolata 9'> > %title</span>"
 for_window [window_role="GtkFileChooserDialog"] floating enable
@@ -162,3 +162,4 @@ for_window [instance="Places"] floating enable
 for_window [instance="gimp-2.8*"] floating enable
 for_window [class="zoom"] move container to workspace 7
 for_window [class="Atom"] move container to workspace 2
+for_window [title="Developer Tools.*"] move container to workspace 10

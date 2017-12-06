@@ -150,10 +150,10 @@
     browser = /home/kangoula/softwares/firefox-nightly/firefox -new-tab
 
     # Align icons left/right/off
-    icon_position = left
+    icon_position = off
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/kangoula/.icons/Flattr/apps/16/:/home/kangoula/.icons/Flattr/devices/16/
+    icon_folders = /usr/share/icons/gnome/16x16/status/:/usr/share/icons/gnome/16x16/devices/:/home/kangoula/.icons/Flattr/apps/64/:/home/kangoula/.icons/Flattr/devices/16/
 
 [frame]
     width = 0
