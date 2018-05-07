@@ -11,6 +11,7 @@ URxvt*saveLines: 10000
 URxvt*scrollBar: false
 URxvt.depth: 32
 URxvt.background: [90]#282A36
+URxvt.perl-ext-common: tabbed
 ! Colors {{{
 rofi.color-enabled: true
 rofi.color-window: argb:d8282a36, argb:0282a36, argb:0282a36
@@ -37,6 +38,10 @@ rofi.color-urgent: argb:044475a, #ff5555, argb:044475a, #44475a, #ff5555
 *.color7:     #BFBFBF
 *.color15: #E6E6E6
 
+URxvt.tabbed.tabbar-fg: -2
+URxvt.tabbed.tabbar-bg: -1
+URxvt.tabbed.tab-fg: 6
+URxvt.tabbed.tab-bg: -1
 ! special
 !*foreground:   #f8f8f2
 !*background:   #282a36 
