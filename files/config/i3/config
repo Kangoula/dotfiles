@@ -1,0 +1,158 @@
+
+set $mod Mod4
+
+font pango:Inconsolata 13
+
+floating_modifier $mod
+
+gaps outer 0
+gaps inner 5
+smart_borders on
+smart_gaps on
+
+# Set colors from Xresources
+set_from_resource $fg i3wm.foreground #f8f8f2
+set_from_resource $bg i3wm.background #999999
+set_from_resource $bg_foc i3wm.color8 #000000
+
+bindsym Ctrl+Q exec /bin/false 
+
+# kill focused window
+bindsym $mod+Shift+A kill
+
+# focus container
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move container
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+bindsym $mod+h split h
+bindsym $mod+v split v
+
+bindsym $mod+f fullscreen toggle
+
+# change container layout (stacked, tabbed, toggle split)
+bindsym $mod+s layout stacking
+bindsym $mod+z layout tabbed
+bindsym $mod+t layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+q focus parent
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Worskpace switch
+bindsym $mod+ctrl+Left workspace prev_on_output
+bindsym $mod+ctrl+Right workspace next_on_output
+
+bindsym $mod+ampersand workspace 1
+bindsym $mod+eacute workspace 2
+bindsym $mod+quotedbl workspace 3
+bindsym $mod+apostrophe workspace 4
+bindsym $mod+parenleft workspace 5
+bindsym $mod+minus workspace 6
+bindsym $mod+egrave workspace 7
+bindsym $mod+underscore workspace 8
+bindsym $mod+ccedilla workspace 9
+bindsym $mod+agrave workspace 10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace 1
+bindsym $mod+Shift+eacute move container to workspace 2
+bindsym $mod+Shift+3 move container to workspace 3
+bindsym $mod+Shift+4 move container to workspace 4
+bindsym $mod+Shift+5 move container to workspace 5
+bindsym $mod+Shift+6 move container to workspace 6
+bindsym $mod+Shift+egrave move container to workspace 7
+bindsym $mod+Shift+8 move container to workspace 8
+bindsym $mod+Shift+ccedilla move container to workspace 9
+bindsym $mod+Shift+agrave move container to workspace 10
+
+bindsym $mod+ctrl+Shift+Right move window to workspace next_on_output
+bindsym $mod+ctrl+Shift+Left move window to workspace prev_on_output
+
+# reload the configuration file
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+
+mode "resize" {
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+}
+
+set $power_control " [l]ock log[o]ut  [r]eboot  [p]oweroff"
+mode $power_control {
+	bindsym l exec ~/.config/i3/lock/lock -p -- scrot; mode "default"
+	bindsym o exec i3-msg exit; mode "default"
+   	bindsym r exec systemctl reboot; mode "default"
+   	bindsym p exec systemctl poweroff; mode "default"
+   	bindsym Return mode "default"
+	bindsym Escape mode "default"
+}
+
+
+bindsym $mod+r mode "resize"
+bindsym $mod+l exec ~/.config/i3/lock/lock -p -- scrot; mode "default"
+bindsym $mod+n mode $power_control
+
+client.focused          $bg_foc $bg_foc $fg $bg_foc $bg_foc
+client.focused_inactive $bg     			$bg     			$fg  	$bg       			$bg
+client.unfocused        $bg_unfoc     $bg_unfoc     $fg  	$bg_unfoc      	$bg_unfoc
+client.urgent           $bg     			$bg     			$fg  	$bg             $bg
+client.placeholder 		  $bg 				  $bg 				  $fg 	$bg		          $bg
+
+# center window
+bindsym $mod+c move position center
+
+# specific app shortcuts
+bindsym $mod+Return exec urxvt
+bindsym $mod+d exec rofi -modi drun -show drun
+bindsym $mod+e exec gio open ~
+
+# start applications
+exec nitrogen --restore &
+exec /usr/bin/compton --dbus --config ~/.config/i3/compton.conf &
+exec_always ~/.config/polybar/launch.sh
+
+# Specific settings for windows
+for_window [class="^.*"] border pixel 1
+for_window [class="^.*"] floating disable
+for_window [class=".*"] title_format "%title"
+
+for_window [window_role="Preferences"] floating enable, border normal
+for_window [window_role="gnome-terminal-preferences"] floating enable, border normal
+for_window [window_type="dialog"] floating enable, border normal
+for_window [window_type="menu"] floating enable, border normal
+for_window [window_role="PictureInPicture"] floating enable
+
+for_window [instance="slack"] move container to workspace 8
+for_window [instance="Dialog"] floating enable, border normal
+for_window [instance="Places"] floating enable, border normal
+for_window [class="code-oss"] move container to workspace 2
+for_window [class="Atom"] move container to workspace 2
+for_window [title="DevTools.*"] move container to workspace 9, floating disable, border none, resize set 1400 1080
+for_window [class="discord*"] move container to workspace 10, layout tabbed
+for_window [class="Thunderbird*"] move container to workspace 10, layout tabbed
+for_window [class="Rocket.Chat*"] move container to workspace 10, layout tabbed
+for_window [class="Spotify*"] move container to workspace 5
+for_window [class="Chromium*"] move container to workspace 3
+for_window [class="firefox"] move container to workspace 4
+

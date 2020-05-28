@@ -1,0 +1,347 @@
+;=====================================================
+;
+;   To learn more about how to configure Polybar
+;   go to https://github.com/jaagr/polybar
+;
+;   The README contains alot of information
+;
+;=====================================================
+
+[colors]
+
+my_background 	= ${xrdb:background}
+my_foreground 	= ${xrdb:foreground}
+my_color0	= ${xrdb:color0}
+my_color1	= ${xrdb:color1}
+my_color2	= ${xrdb:color2}
+my_color3	= ${xrdb:color3}
+my_color4	= ${xrdb:color4}
+my_color5	= ${xrdb:color5}
+my_color6	= ${xrdb:color6}
+my_color7	= ${xrdb:color7}
+my_color8	= ${xrdb:color8}
+my_color9	= ${xrdb:color9}
+my_color10	= ${xrdb:color10}
+my_color11	= ${xrdb:color11}
+my_color12	= ${xrdb:color12}
+my_color13	= ${xrdb:color13}
+my_color14	= ${xrdb:color14}
+my_color15 = ${xrdb:color15}
+
+very-dark-gray = #df282a36
+dark-gray = #9044475a
+gray = #666666
+light-gray = #999999
+very-light-gray = #f8f8f2
+blue= #6272a4
+cyan = #8be9fd
+soft-cyan = #66d9ef
+green = #50fa7b
+orange = #ffb86c
+pink = #ff79c6
+purple = #bd93f9
+red = #ff5555
+yellow = #f1fa8c
+dark-yellow = #E6DB74
+sandstone = #cfcfc2
+lace = #f8f8f0
+white = #ffffff
+black = #000000
+transparent = #00000000
+
+background = ${self.my_background}
+background-alt = ${self.dark-gray}
+workspace-focused-underline = ${self.my_color6}
+date-underline = ${self.transparent}
+fs-underline = ${self.my_color6}
+cpu-underline = ${self.my_color6}
+memory-underline = ${self.my_color6}
+volume-underline = ${self.my_color6}
+charging-underline = ${self.my_color10}
+discharging-underline = ${self.my_color9}
+eth-underline = ${self.transparent}
+foreground = ${self.my_foreground}
+foreground-alt = ${self.light-gray}
+alert = ${self.orange}
+
+[bar/bar1]
+include-file = /home/kangoula/.config/polybar/bar1.config
+
+[bar/bar2]
+include-file = /home/kangoula/.config/polybar/bar2.config
+
+[bar/base]
+;monitor =
+bottom = false
+width = 100%
+height = 25
+fixed-center = true
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 2 
+line-color = ${colors.my_color4}
+
+border-size = 0
+border-color = ${colors.transparent}
+
+padding-left = 0
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+font-0 = Inconsolata:pixelsize=10;1
+font-1 = fontawesome:pixelsize=9;1
+
+modules-left = i3 xwindow
+modules-center = date
+modules-right = memory cpu volume battery 
+
+tray-position = right
+tray-padding = 2
+tray-transparent = false
+tray-background = ${colors.my_background}
+
+#scroll-up = i3wm-wsnext
+#scroll-down = i3wm-wsprev
+
+locale = fr_FR.UTF-8
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+format-prefix = " "
+format-prefix-foreground = ${colors.my_foreground}
+format-prefix-underline = ${colors.secondary}
+
+label-layout = %layout%
+label-layout-underline = ${colors.secondary}
+
+label-indicator-padding = 2
+label-indicator-margin = 1
+label-indicator-background = ${colors.secondary}
+label-indicator-underline = ${colors.secondary}
+
+[module/filesystem]
+type = internal/fs
+interval = 25
+
+mount-0 = /home
+
+label-mounted = %mountpoint%: %percentage_used%%
+label-unmounted = %mountpoint% not mounted
+label-unmounted-foreground = ${colors.foreground-alt}
+format-mounted-underline = ${colors.fs-underline}
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = true
+
+; Only show workspaces on the same output as the bar
+pin-workspaces = true
+; Create click handler used to focus workspace
+enable-click = true
+; Create scroll handlers used to cycle workspaces
+; enable-scroll = true
+
+label-mode-padding = 2
+label-mode-foreground = ${colors.foreground}
+label-mode-background = ${colors.background}
+
+; focused = Active workspace on focused monitor
+label-focused = %index%
+label-focused-background = ${colors.background-alt}
+label-focused-underline = ${colors.workspace-focused-underline}
+label-focused-padding = 4
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 4
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 4
+
+[module/cpu]
+type = internal/cpu
+interval = 2
+format = <label>
+format-underline = ${colors.cpu-underline}
+label = %{F#f8f8f2}CPU %percentage%%%{F-}
+
+ramp-coreload-0 = %{F#dfdfdf}▁%{F-}
+ramp-coreload-3 = %{F#dfdfdf}▄%{F-}
+ramp-coreload-1 = %{F#dfdfdf}▂%{F-}
+ramp-coreload-2 = %{F#dfdfdf}▃%{F-}
+ramp-coreload-4 = %{F#dfdfdf}▅%{F-}
+ramp-coreload-5 = %{F#dfdfdf}▆%{F-}
+ramp-coreload-6 = %{F#dfdfdf}▇%{F-}
+ramp-coreload-7 = %{F#dfdfdf}█%{F-}
+
+[module/memory]
+type = internal/memory
+interval = 2
+format = <label>
+format-underline = ${colors.memory-underline}
+label = %{F#f8f8f2}MEM %percentage_used%%%{F-}
+
+bar-used-indicator =
+bar-used-width = 10
+bar-used-foreground-0 = #55aa55
+bar-used-foreground-1 = #557755
+bar-used-foreground-2 = #f5a70a
+bar-used-foreground-3 = #ff5555
+bar-used-fill = ▐
+bar-used-empty = ▐
+bar-used-empty-foreground = #444444
+format-prefix-foreground = ${colors.foreground-alt}
+
+[module/eth]
+type = internal/network
+interface = wlp2s0
+interval = 5.0
+
+format-connected = <ramp-signal> <label-connected>
+format-connected-underline = ${colors.eth-underline}
+format-connected-prefix = " "
+format-connected-prefix-foreground = ${colors.foreground-alt}
+label-connected = %{F#f8f8f2}%local_ip%%{F-}
+
+format-disconnected = "x"
+;format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected = %ifname% disconnected
+label-disconnected-foreground = ${colors.alert}
+
+format-packetloss = <animation-packetloss> <label-connected>
+
+ramp-signal-foreground = ${colors.foreground}
+ramp-signal-0 = --
+ramp-signal-1 = -
+ramp-signal-2 = .
+ramp-signal-3 = .
+ramp-signal-4 = +
+ramp-signal-5 = ++
+
+animation-packetloss-0 = ⚠
+animation-packetloss-0-foreground = ${colors.foreground}
+animation-packetloss-1 = 📶
+animation-packetloss-1-foreground = #000000
+; Framerate in milliseconds
+animation-packetloss-framerate = 500
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = " %a %_d %b %Y - "
+
+time = %H:%M
+
+format-underline = ${colors.date-underline}
+
+label = %date% %time%
+
+[module/volume]
+type = internal/volume
+
+format-volume = <label-volume> <ramp-volume>
+label-volume =  %percentage%
+label-volume-foreground = ${colors.foreground}
+
+format-muted-prefix = " "
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = muted
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+ramp-volume-0 =
+
+format-volume-underline = ${colors.volume-underline}
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC0
+full-at = 98
+
+format-charging = <animation-charging> <label-charging>
+format-charging-underline = ${colors.charging-underline}
+label-charging=%{F#f8f8f2}%percentage%%%{F-}
+
+format-discharging = <ramp-capacity> <label-discharging>
+format-discharging-underline = ${colors.discharging-underline}
+label-discharging=%{F#f8f8f2}%percentage%%%{F-}
+
+format-full-underline = ${colors.charging-underline}
+label-full=%{F#f8f8f2}%percentage%%%{F-}
+
+ramp-capacity-0 =  
+ramp-capacity-1 =  
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground-alt}
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-foreground = ${colors.foreground-alt}
+animation-charging-framerate = 750
+
+[module/powermenu]
+type = custom/menu
+
+format-spacing = 1
+
+label-open = kangoula
+label-open-foreground = ${colors.foreground}
+label-close =  x
+label-close-foreground = ${colors.red}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = power off
+menu-0-1-exec = menu-open-2
+
+menu-1-0 = cancel
+menu-1-0-exec = menu-open-0
+menu-1-1 = reboot
+menu-1-1-exec = sudo reboot
+
+menu-2-0 = power off
+menu-2-0-exec = sudo poweroff
+menu-2-1 = cancel
+menu-2-1-exec = menu-open-0
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+; vim:ft=dosini
